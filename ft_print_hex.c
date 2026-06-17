@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaaugu <eduaaugu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 13:26:01 by eduaaugu          #+#    #+#             */
-/*   Updated: 2026/06/17 15:37:08 by eduaaugu         ###   ########.fr       */
+/*   Created: 2026/06/17 11:47:59 by eduaaugu          #+#    #+#             */
+/*   Updated: 2026/06/17 15:57:27 by eduaaugu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-// Libft
-# include "libft/libft.h"
-# include <stdarg.h>
+int	ft_print_hex(unsigned long x, const char *format)
+{
+	const char	*hex;
+	int			len;
 
-// Functions
-int	ft_printf(const char *format, ...);
-int	ft_print_char(char c);
-int	ft_print_str(char *s);
-int	ft_print_pointer(void *p);
-int	ft_print_dec(int i);
-int	ft_print_unsigned(unsigned int u);
-int	ft_print_hex(unsigned long x, const char *format);
-
-#endif
+	if (*format == 'x')
+		hex = "0123456789abcdef";
+	else
+		hex = "0123456789ABCDEF";
+	len = 1;
+	if (x / 16 != 0)
+		len += ft_print_hex(x / 16, format);
+	ft_putchar_fd(hex[x % 16], 1);
+	return (len);
+}

@@ -6,7 +6,7 @@
 /*   By: eduaaugu <eduaaugu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:44:46 by eduaaugu          #+#    #+#             */
-/*   Updated: 2026/06/17 10:25:37 by eduaaugu         ###   ########.fr       */
+/*   Updated: 2026/06/17 15:37:24 by eduaaugu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_print_handler(const char *format, va_list args)
 	else if (*format == 'u')
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
 	else if (*format == 'x' || *format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int)));
+		return (ft_print_hex(va_arg(args, unsigned long), format));
 	else if (*format == '%')
 	{
 		ft_putchar_fd('%', 1);
