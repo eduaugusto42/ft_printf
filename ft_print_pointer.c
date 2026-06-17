@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaaugu <eduaaugu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 11:17:31 by eduaaugu          #+#    #+#             */
-/*   Updated: 2026/06/17 11:22:23 by eduaaugu         ###   ########.fr       */
+/*   Created: 2026/06/17 11:47:59 by eduaaugu          #+#    #+#             */
+/*   Updated: 2026/06/17 17:14:30 by eduaaugu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	ft_print_pointer(void *p)
 {
-	char			*hex;
-	const char		*c;
+	int	len;
 
-	hex = "123456789abcdef";
-	c = (const char *)p;
-
-	return (ft_strlen(c));
+	if (!p)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
+	ft_putstr_fd("0x", 1);
+	len = ft_print_hex((unsigned long)p, 'x') + 2;
+	return (len);
 }

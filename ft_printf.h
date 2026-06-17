@@ -6,7 +6,7 @@
 /*   By: eduaaugu <eduaaugu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:26:01 by eduaaugu          #+#    #+#             */
-/*   Updated: 2026/06/17 15:37:08 by eduaaugu         ###   ########.fr       */
+/*   Updated: 2026/06/17 17:09:24 by eduaaugu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_print_str(char *s);
 int	ft_print_pointer(void *p);
 int	ft_print_dec(int i);
 int	ft_print_unsigned(unsigned int u);
-int	ft_print_hex(unsigned long x, const char *format);
+int	ft_print_hex(unsigned long x, char c);
 
 #endif
