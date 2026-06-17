@@ -6,7 +6,7 @@
 /*   By: eduaaugu <eduaaugu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:44:46 by eduaaugu          #+#    #+#             */
-/*   Updated: 2026/06/15 15:22:56 by eduaaugu         ###   ########.fr       */
+/*   Updated: 2026/06/17 10:25:37 by eduaaugu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	ft_print_handler(const char *format, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
+	int		count;
 	int		handler;
-	size_t	count;
 	va_list	args;
 
 	count = 0;
@@ -28,14 +28,14 @@ int	ft_printf(const char *format, ...)
 		{
 			handler = ft_print_handler(++format, args);
 			if (handler < 0)
+			{
+				va_end(args);
 				return (handler);
+			}
 			count += handler;
 		}
 		else
-		{
-			ft_putchar_fd(*format, 1);
-			count++;
-		}
+			count += ft_print_char(*format);
 		format++;
 	}
 	va_end(args);
