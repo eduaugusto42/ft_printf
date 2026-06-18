@@ -6,7 +6,7 @@
 #    By: eduaaugu <eduaaugu@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/18 17:24:11 by eduaaugu          #+#    #+#              #
-#    Updated: 2026/06/11 12:29:17 by eduaaugu         ###   ########.fr        #
+#    Updated: 2026/06/18 10:54:14 by eduaaugu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,13 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC = \
-	  ft_printf.c
+	  ft_printf.c \
+	  ft_print_char.c \
+	  ft_print_str.c \
+	  ft_print_pointer.c \
+	  ft_print_dec.c \
+	  ft_print_unsigned.c \
+	  ft_print_hex.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -27,12 +33,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	cp $(LIBFT) $(NAME)
-	ar rcs $@ $^
+	ar rcs $(NAME) $(OBJS)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c libftprintf.h
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
